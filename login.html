@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login System</title>
+</head>
+<body>
+
+<h2>Login Page</h2>
+
+<input type="text" id="username" placeholder="Username"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+<button onclick="register()">Register</button>
+
+<p id="result"></p>
+
+<script>
+const SERVER = "http://127.0.0.1:5000";
+
+// -------- LOGIN --------
+function login() {
+    fetch(SERVER + "/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("result").innerText = data.message;
+    })
+    .catch(() => {
+        document.getElementById("result").innerText = "Server offline";
+    });
+}
+
+// -------- REGISTER --------
+function register() {
+    fetch(SERVER + "/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("result").innerText = data.message || data.error;
+    })
+    .catch(() => {
+        document.getElementById("result").innerText = "Server offline";
+    });
+}
+</script>
+
+</body>
+</html>
