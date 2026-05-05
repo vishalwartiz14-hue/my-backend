@@ -349,7 +349,7 @@ class DashboardFrame(ctk.CTkFrame):
             "phone": self.c_phone.get()
         }
 
-        requests.post("http://127.0.0.1:5000/customers", json=data)
+        requests.post("https://my-backend-akis.onrender.com/customers", json=data)
         self.show_customers()
 
 
@@ -375,7 +375,7 @@ class DashboardFrame(ctk.CTkFrame):
             w.destroy()
 
         try:
-            landlords = requests.get("http://127.0.0.1:5000/landlords").json()
+            landlords = requests.get("https://my-backend-akis.onrender.com/landlords").json()
         except:
             landlords = []
 
@@ -446,7 +446,7 @@ class DashboardFrame(ctk.CTkFrame):
             "secondary_email": self.email.get()
         }
 
-        requests.post("http://127.0.0.1:5000/landlords", json=data)
+        requests.post("https://my-backend-akis.onrender.com/landlords", json=data)
         self.show_landlords()
 
     # ================= PROFILE =================

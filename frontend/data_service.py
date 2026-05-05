@@ -13,7 +13,7 @@ from frontend.local_db import (
     delete_customer_local
 )
 
-SERVER = "http://127.0.0.1:5000"
+SERVER = "https://my-backend-akis.onrender.com"
 
 
 # ================= ONLINE CHECK =================

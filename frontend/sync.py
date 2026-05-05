@@ -5,9 +5,9 @@ import json
 
 from frontend.local_db import get_pending_changes, mark_synced
 
-API_URL = "http://127.0.0.1:5000"
+# API_URL = "http://127.0.0.1:5000"
 
-
+API_URL = "https://my-backend-akis.onrender.com"
 def is_online():
     try:
         requests.get(f"{API_URL}/ping", timeout=2)
